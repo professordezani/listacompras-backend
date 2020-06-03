@@ -43,7 +43,7 @@ module.exports = {
     },
 
     async read() {
-        const sql = 'SELECT * FROM listacompras'
+        const sql = 'SELECT * FROM listacompras order by nome'
         const result = await pool.query(sql);
         return result.rows;
     },
