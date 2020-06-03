@@ -46,5 +46,19 @@ module.exports = {
         const sql = 'SELECT * FROM listacompras'
         const result = await pool.query(sql);
         return result.rows;
-    }
+    },
+
+    async update(id) { 
+        const sql = `UPDATE listacompras SET comprado = $1 WHERE id = $2`;
+
+        const result = await pool.query(sql, [true, id]);
+        return result.rowCount;
+    },
+
+    async delete(id) { 
+        const sql = `DELETE * FROM listacompras WHERE id = $1`;
+
+        const result = await pool.query(sql, [id]);
+        return result.rowCount;
+    },
 }

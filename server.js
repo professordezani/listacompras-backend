@@ -22,4 +22,16 @@ server.post('/', async function(request, response) {
     return response.status(204).send();
 })
 
+server.put('/:id', async function(request, response) { 
+    const id = request.params.id;
+    const result = await database.update(id);
+    return response.status(200).send();
+})
+
+server.delete('/:id', async function(request, response) { 
+    const id = request.params.id;
+    const result = await database.delete(id);
+    return response.status(200).send();
+})
+
 server.listen(process.env.PORT || 3000);
