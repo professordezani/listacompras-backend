@@ -48,10 +48,10 @@ module.exports = {
         return result.rows;
     },
 
-    async update(id) { 
+    async update(id, comprado) { 
         const sql = `UPDATE listacompras SET comprado = $1 WHERE ID = $2`;
 
-        const result = await pool.query(sql, [true, id]);
+        const result = await pool.query(sql, [comprado, id]);
         return result.rowCount;
     },
 

@@ -24,7 +24,8 @@ server.post('/', async function(request, response) {
 
 server.put('/:id', async function(request, response) { 
     const id = request.params.id;
-    const result = await database.update(id);
+    const comprado = request.body.comprado;
+    const result = await database.update(id, comprado);
     return response.status(200).send();
 })
 
