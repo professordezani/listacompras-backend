@@ -56,7 +56,7 @@ module.exports = {
     },
 
     async delete(id) { 
-        const sql = `DELETE * FROM listacompras WHERE ID = $1`;
+        const sql = `DELETE FROM listacompras WHERE ID = $1`;
 
         const result = await pool.query(sql, [id]);
         return result.rowCount;
